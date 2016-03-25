@@ -1,0 +1,135 @@
+﻿@model IEnumerable<WissingCodeLouisvilleProject1.Models.Interview>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Interviews</h2>
+
+<p>
+    <br />
+
+   @Html.ActionLink("Create New Entry", "Create", null, new { @class = "btn btn-default" })
+   @Html.ActionLink("View All", "Index", null, new { @class = "btn btn-default" })
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InterviewerFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterviewerLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntervieweeFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntervieweeLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterviewerFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterviewerLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IntervieweeFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IntervieweeLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.InterviewID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.InterviewID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.InterviewID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <h2>Filter Interviews</h2>
+    <p>Filter the results above by entering text into one or many of the fields below and clicking 'Filter'.</p>
+    
+<p>
+    @using (Html.BeginForm())
+    {
+
+        <form class="form-horizontal">
+
+            <label class="control-label col-md-2">Interviewer First Name:</label>
+            <div>@Html.TextBox("SearchString", null, new { @class = "form-control" })</div>
+            <br />
+
+            <label class="control-label col-md-2">Interviewer Last Name:</label>
+            <div>@Html.TextBox("InterviewerLastName", null, new { @class = "form-control" })</div>
+            <br />
+
+            <label class="control-label col-md-2">Interviewee First Name:</label>
+            <div>@Html.TextBox("IntervieweeFirstName", null, new { @class = "form-control" })</div>
+            <br />
+
+            <label class="control-label col-md-2">Interviewee Last Name:</label>
+            <div>@Html.TextBox("IntervieweeLastName", null, new { @class = "form-control" })</div>
+            <br />
+
+            <label class="control-label col-md-2">Location:</label>
+            <div>@Html.TextBox("Location", null, new { @class = "form-control" })</div>
+            <br />
+
+            <label class="control-label col-md-2">Name of Event:</label>
+            <div>@Html.TextBox("EventName", null, new { @class = "form-control" })</div>
+            <br />
+
+            <label class="control-label col-md-2">Notes:</label>
+            <div>@Html.TextBox("Notes", null, new { @class = "form-control" })</div>
+            <br />
+
+
+            <input type="submit" value="Filter" class="btn btn-default">
+
+            </form>
+
+            }
+</p>
+
+
